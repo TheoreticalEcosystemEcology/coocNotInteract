@@ -1,6 +1,11 @@
+# Project specific
+inst/img/
+output/
+
 # History files
 .Rhistory
 .Rapp.history
+tmp/
 
 # Session Data files
 .RData
