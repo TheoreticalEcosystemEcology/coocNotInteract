@@ -3,7 +3,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom grDevices dev.off png
 #' @importFrom graphics axis box layout lines mtext par points text title
-#' @importFrom graphicsutils envelop plot0 plotImage box2
+#' @importFrom graphicsutils box2 contrastColors darken envelop plot0 plotImage
 #' @keywords internal
 NULL
 
