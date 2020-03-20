@@ -1,17 +1,17 @@
 #' @importFrom crayon blue green
 #' @importFrom inSilecoMisc logistic2 gaussianShape scaleWithin
-#' @importFrom magrittr %>%
-#' @importFrom grDevices dev.off png
-#' @importFrom graphics abline axis box layout legend lines mtext par
+#' @importFrom grDevices colorRampPalette dev.off png
+#' @importFrom graphics abline axis box image layout legend lines mtext par
 #' @importFrom graphics plot points text title
 #' @importFrom graphicsutils box2 contrastColors darken envelop plot0 plotImage
+#' @importFrom progress progress_bar
 #' @importFrom rootSolve stode
+#' @importFrom stats rbinom
 #' @keywords internal
 NULL
 
 
 # HELPERS
-
 output_dir <- function(dir = "output") {
   if (!dir.exists(dir)) {
     dir.create(dir)
@@ -36,4 +36,4 @@ info_msg <- function(...) message(blue(paste0(cli::symbol$info, " ", ...)))
 mlet <- function(let = "a", line = -1)
   mtext(3, text = let, adj = 0.02, line = line)
 
-pal <- c("#071e37", "#297499", "darkorange", "#f4d016")
+pal <- c("#021128", "#3e99b5", "darkorange", "#fcdb30")

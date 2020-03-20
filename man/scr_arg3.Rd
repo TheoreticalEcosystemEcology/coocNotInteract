@@ -2,7 +2,7 @@
 % Please edit documentation in R/scr_arg3.R
 \name{scr_arg3}
 \alias{scr_arg3}
-\title{Argument 3: co-occurrence with 4 species}
+\title{Argument 3: co-occurrence and indirect association}
 \usage{
 scr_arg3()
 }

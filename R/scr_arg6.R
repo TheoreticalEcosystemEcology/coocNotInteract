@@ -11,8 +11,8 @@ scr_arg6 <- function(nval = 200) {
 
   sig_vec <- seq(0, 1, length.out = nval)
   res <- matrix(nrow = nval, ncol = 5)
-  pars <- list(a1 = 1, a2 = 1, f1 = 1, fp1 = 1, s1 = 5, sp1 = 1, e1 = 1, ep1 = 1,
-    f2 = 1, fp2 = 1, s2 = 4.5, sp2 = 1, e2 = 1, ep2 = 1)
+  pars <- list(a1 = 1, a2 = 1, f1 = 1, fp1 = 1, s1 = 5, sp1 = 1, e1 = 1,
+    ep1 = 1, f2 = 1, fp2 = 1, s2 = 4.5, sp2 = 1, e2 = 1, ep2 = 1)
 
   for (i in seq_len(nval)) {
     pars$sp1 <- pars$s1 * (1 - pars$a1 * sig_vec[i])
@@ -24,6 +24,7 @@ scr_arg6 <- function(nval = 200) {
     pIND <- (p1 + p12) * (p2 + p12)
     res[i, ] = c(p1, p2, p12, pIND, p12/pIND)
   }
+
 
   # output dir
   output_dir()

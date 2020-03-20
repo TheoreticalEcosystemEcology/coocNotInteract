@@ -15,8 +15,9 @@ Imports:
     graphics,
     graphicsutils,
     inSilecoMisc,
-    magrittr,
-    rootSolve
+    progress,
+    rootSolve,
+    stats
 Remotes:
   inSileco/graphicsutils,
   inSileco/inSilecoMisc

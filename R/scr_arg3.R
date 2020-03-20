@@ -1,4 +1,4 @@
-#' Argument 3: co-occurrence with 4 species
+#' Argument 3: co-occurrence and indirect association
 #'
 #' Code to reproduce analysis for 1st argument and figure 3.
 #'

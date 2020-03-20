@@ -7,6 +7,8 @@
 
 pipeline <- function() {
   #
+  set.seed(7891)
+  #
   info_msg("Argument 1")
   scr_arg1()
   #
@@ -15,6 +17,9 @@ pipeline <- function() {
   #
   info_msg("Argument 3")
   scr_arg3()
+  #
+  info_msg("Argument 4")
+  scr_arg4()
   #
   info_msg("Argument 6")
   scr_arg6()
