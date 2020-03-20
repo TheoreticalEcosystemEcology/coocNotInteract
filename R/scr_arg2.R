@@ -73,8 +73,9 @@ scr_arg2 <- function(nval = 100) {
   ##
   plot0()
   text(-.3, 0, labels = "Co-occurrence signal", cex = cx_txt, srt = 90)
-  # text(-.3, 0, labels = expression(P(X[P],X[C1]) - P(X[P])*P(X[C1])), cex =   cx_txt, srt = 90)
   dev.off()
+
+  success_msg_fig(2)
 
   invisible(NULL)
 }

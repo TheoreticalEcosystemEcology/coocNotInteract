@@ -3,7 +3,9 @@
 
 :book: Blanchet (in rev) DOI:2Badded - Research compendium
 
-Code to reproduce analysis and figure in...
+
+
+Code to reproduce analysis and figure in <https://www.authorea.com/users/293493/articles/421501-co-occurrence-is-not-evidence-of-ecological-interaction>
 
 
 ## Install

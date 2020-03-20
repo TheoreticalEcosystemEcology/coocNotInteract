@@ -15,6 +15,7 @@ NULL
 output_dir <- function(dir = "output") {
   if (!dir.exists(dir)) {
     dir.create(dir)
+    info_msg(dir, " created!")
   }
   invisible(dir)
 }
@@ -24,6 +25,9 @@ output_dir <- function(dir = "output") {
 success_msg <- function(...) {
   message(green(paste0(cli::symbol$tick, " ", ...)))
 }
+
+success_msg_fig <- function(n, dir = "output")
+  success_msg("Fig ", n, " created! See ", dir, "/fig", n, ".png")
 
 info_msg <- function(...) message(blue(paste0(cli::symbol$info, " ", ...)))
 

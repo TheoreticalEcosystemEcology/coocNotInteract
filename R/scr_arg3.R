@@ -10,6 +10,10 @@ scr_arg3 <- function() {
   val <- do.call(rbind, lapply(seq_x, function(x) sim_RCT(0.5, x, 0.5, 0.5)))
   vc_txt <- c("R", "C", "P", "T")
 
+
+  # output dir
+  output_dir()
+
   png(filename = "output/fig3.png", width = 5.5, height = 5, res = 600, units = "in")
 
   layout(matrix(1:2, 1), widths = c(1, 0.25))
@@ -37,6 +41,10 @@ scr_arg3 <- function() {
   mtext(3, adj = 0.01, text = "b", cex = 1.4, line = -1)
 
   dev.off()
+
+  success_msg_fig(3)
+
+  invisible(NULL)
 
 }
 
