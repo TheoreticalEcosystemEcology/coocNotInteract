@@ -1,6 +1,7 @@
 Package: cooccnotinter
 Title: Research compendium
 Version: 0.0.0.9000
+Date: 2020-03-20
 Authors@R: c(
   person("Kevin", "Cazelles", email = "kcazelle@uoguelph.ca", comment = c(ORCID = "0000-0001-6619-9874"), role = c("aut", "cre"))
   )
@@ -14,7 +15,8 @@ Imports:
     graphics,
     graphicsutils,
     inSilecoMisc,
-    magrittr
+    magrittr,
+    rootSolve
 Remotes:
   inSileco/graphicsutils,
   inSileco/inSilecoMisc

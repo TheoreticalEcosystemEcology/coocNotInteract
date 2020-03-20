@@ -2,8 +2,10 @@
 #' @importFrom inSilecoMisc logistic2 gaussianShape scaleWithin
 #' @importFrom magrittr %>%
 #' @importFrom grDevices dev.off png
-#' @importFrom graphics axis box layout lines mtext par points text title
+#' @importFrom graphics abline axis box layout legend lines mtext par
+#' @importFrom graphics plot points text title
 #' @importFrom graphicsutils box2 contrastColors darken envelop plot0 plotImage
+#' @importFrom rootSolve stode
 #' @keywords internal
 NULL
 
