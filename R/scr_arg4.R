@@ -10,7 +10,6 @@
 #'
 #' @export
 
-
 scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
 
   # sequence size

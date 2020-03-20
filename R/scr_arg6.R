@@ -30,34 +30,36 @@ scr_arg6 <- function(nval = 200) {
   output_dir()
 
   png("output/fig6.png", res = 600, width = 6, height = 4.5, units = "in")
-  par(oma = c(2, 0, 0, 0), mar = c(1, 5, 0.5, 0.5), lend = 1)
+  par(oma = c(2, 0, 0, 0), mar = c(1.25, 4.25, 0.5, 0.5), lend = 1,
+    mgp = c(3, .7, 0))
 
   layout(c(1, 2), heights = c(1, 0.7))
 
-  plot(sig_vec, res[, 1] + res[, 3], ylim = c(0, 1), xlab = "", type = "l", col = "orange",
-    lwd = 3, ylab = NA, las = 1, cex.lab = 1.5, axes = FALSE)
+  plot(sig_vec, res[, 1] + res[, 3], ylim = c(0, 1), xlab = "", type = "l",
+    col = pal[3], lwd = 3, ylab = NA, las = 1, cex.lab = 1.5, axes = FALSE)
   box()
 
   axis(1, las = 1, at = seq(0, 1, by = 0.2), labels = NA, cex.axis = 0.75)
   axis(2, las = 1, cex.axis = 0.75)
-  mtext(side = 2, line = 3, "Occurrence probability", cex = 1)
-  lines(sig_vec, res[, 2] + res[, 3], col = "blue", lwd = 3)
+  mtext("Occurrence probability", 2, line = 2.4, , cex = 1)
+  lines(sig_vec, res[, 2] + res[, 3], col = pal[2], lwd = 3)
   abline(h = 0.5, lty = 3, lwd = 1)
 
-  legend("bottomleft", col = c("orange", "blue"), legend = c("Species A", "Species B"),
+  legend("bottomleft", col = pal[c(3, 2)], legend = c("Species A", "Species B"),
     lty = 1, cex = 1, lwd = 3, bty = "n")
   text(-0.02, 0.98, "a")
 
 
   plot(sig_vec, res[, 3] - res[, 4], type = "l", ylim = c(-0.2, 0.2), lwd = 3,
-    xlab = "", ylab = "Spatial association", axes = FALSE, cex.lab = 1, las = 1)
+    xlab = "", ylab = "", axes = FALSE, cex.lab = 1, las = 1)
   box()
+  mtext("Spatial association", 2, line = 2.4, cex = 1)
 
   abline(h = 0, lty = 3, lwd = 1)
   axis(1, las = 1, at = seq(0, 1, by = 0.2), cex.axis = 0.75)
   axis(2, las = 1, cex.axis = 0.75)
 
-  mtext(side = 1, line = 1, text = "Interaction strength", outer = TRUE)
+  mtext(side = 1, line = .7, text = "Interaction strength", outer = TRUE)
   text(-0.02, 0.18, "b")
 
   dev.off()
