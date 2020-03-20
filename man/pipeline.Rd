@@ -2,10 +2,10 @@
 % Please edit documentation in R/pipeline.R
 \name{pipeline}
 \alias{pipeline}
-\title{Entire pipeline}
+\title{Argument 2: environment and interact}
 \usage{
 pipeline()
 }
 \description{
-Entire pipeline
+Code to reproduce analysis for 1st argument and figure 2.
 }

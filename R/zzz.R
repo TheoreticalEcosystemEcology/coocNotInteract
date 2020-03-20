@@ -1,8 +1,8 @@
 #' @importFrom crayon blue green
-#' @importFrom inSilecoMisc logistic2
+#' @importFrom inSilecoMisc logistic2 gaussianShape scaleWithin
 #' @importFrom magrittr %>%
 #' @importFrom grDevices dev.off png
-#' @importFrom graphics axis layout lines mtext par text title
+#' @importFrom graphics axis box layout lines mtext par points text title
 #' @importFrom graphicsutils envelop plot0 plotImage box2
 #' @keywords internal
 NULL

@@ -5,7 +5,6 @@
 #' @export
 
 
-
 scr_arg1 <- function() {
   denv <- 0.01
   seq_env <- seq(0, 5, denv)
