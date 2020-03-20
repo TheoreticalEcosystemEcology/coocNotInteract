@@ -15,5 +15,12 @@ pipeline <- function() {
   scr_arg2()
   success_msg("Figure 2 done!")
   #
+  info_msg("Argument 3")
+  scr_arg3()
+  success_msg("Figure 3 done!")
+  #
+  info_msg("Argument 6")
+  scr_arg6()
+  success_msg("Figure 6 done!")
   invisible(NULL)
 }

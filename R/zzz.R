@@ -20,15 +20,12 @@ output_dir <- function(dir = "output") {
 }
 
 
-## print helper
-
+## Messages helper
 success_msg <- function(...) {
   message(green(paste0(cli::symbol$tick, " ", ...)))
 }
 
-info_msg <- function(...)
-  message(blue(paste0(cli::symbol$info, " ", ...)))
-
+info_msg <- function(...) message(blue(paste0(cli::symbol$info, " ", ...)))
 
 
 ## Graph helpers

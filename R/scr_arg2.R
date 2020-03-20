@@ -91,28 +91,26 @@ scr_arg2 <- function(nval = 100) {
 # a3 = prob presence of the comsumer given 2 only
 # a4 = prob presence of the comsumer given neither 1 nor 2
 sim_sp3 <- function(p1, p2, a1, a2, a3, a4 = 0) {
-  p3 <- a1*p1*p2 + a2*p1*(1-p2) + a3*(1-p1)*p2 + a4*(1-p1)*(1-p2)
+  p3 <- a1 * p1 * p2 + a2 * p1 * (1 - p2) + a3 * (1 - p1) * p2 +
+    a4 * (1 - p1) * (1 - p2)
 
-  cor13 <- cor_theo(p1, p3, p1*(a1*p2 + a2*(1-p2)))
-  cor23 <- cor_theo(p2, p3, p2*(a1*p1 + a3*(1-p1)))
+  cor13 <- cor_theo(p1, p3, p1 * (a1 * p2 + a2 * (1 - p2)))
+  cor23 <- cor_theo(p2, p3, p2 * (a1 * p1 + a3 * (1 - p1)))
 
   c(cor13, cor23)
 }
 
-
 cor_theo <- function(p1, p2, p12) {
-#  (p12 - p1*p2) / sqrt(p1*(1-p1)*p2*(1-p2))
-  p12 - p1*p2
+  # (p12 - p1*p2) / sqrt(p1*(1-p1)*p2*(1-p2))
+  p12 - p1 * p2
 }
 
-
 plot_net_3 <- function(lwd_C2 = 0, vc_col = 1:3) {
-  plot0(c(.5, 2.5), c(.5, 2.5))
+  plot0(c(0.5, 2.5), c(0.5, 2.5))
   lines(c(1, 1.5), c(1, 2), lwd = 4, col = "gray70")
   lines(c(2, 1.5), c(1, 2), lwd = lwd_C2, col = "gray70")
-  points(c(1:2, 1.5), c(1,1, 2), pch = 21, bg = vc_col, cex = 5, lwd = 2.2)
-  text(c(1:2, 1.5), c(1, 1, 2), labels = c(paste0("C", 1:2), "P"),
-    cex = 1.4, col = "grey10")
+  points(c(1:2, 1.5), c(1, 1, 2), pch = 21, bg = vc_col, cex = 5, lwd = 2.2)
+  text(c(1:2, 1.5), c(1, 1, 2), labels = c(paste0("C", 1:2), "P"), cex = 1.4, col = "grey10")
   invisible(NULL)
 }
 

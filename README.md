@@ -15,6 +15,14 @@ library("cooccnotinter")
 
 ## Reproduce
 
+For any argument *N* in the manuscript, there is a corresponding function `scr_argN` that runs the analysis and export the corresponding figure.
+For instance for argument 1, run
+
+```R
+scr_arg1()
+```
+If you want to execute all the entire set of argument, use
+
 ```R
 pipeline()
 ```

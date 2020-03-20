@@ -6,41 +6,40 @@
 
 scr_arg3 <- function() {
 
-  seq_x <- seq(0.01, .99, .01)
-  val <- do.call(rbind, lapply(seq_x, function(x) sim_RCT(.5, x, .5, .5)))
+  seq_x <- seq(0.01, 0.99, 0.01)
+  val <- do.call(rbind, lapply(seq_x, function(x) sim_RCT(0.5, x, 0.5, 0.5)))
   vc_txt <- c("R", "C", "P", "T")
 
-  png(filename = "output/fig3.png", width = 5.5, height = 5, res = 600,
-    units = "in")
+  png(filename = "output/fig3.png", width = 5.5, height = 5, res = 600, units = "in")
 
-  layout(matrix(1:2, 1), widths = c(1, .25))
+  layout(matrix(1:2, 1), widths = c(1, 0.25))
 
-  par(mar = c(4.2, 4.2, 1.5, .5), las = 1, mgp = c(3, 1, 0), cex.lab = 1.2,
-    cex.axis = 1.2)
+  par(mar = c(4.2, 4.2, 1.5, 0.5), las = 1, mgp = c(3, 1, 0), cex.lab = 1.2, cex.axis = 1.2)
 
-  plot0(c(0,1), c(0,.25))
+  plot0(c(0, 1), c(0, 0.25))
   axis(2)
   axis(1)
   box2(1:2, lwd = 2)
-  title(xlab = expression(P(X[C]*"|"*X[R])), ylab = "Co-occurrence signal")
-  for (i in 1:3) {
-    lines(seq_x, val[,i], col = pal[i+1], lwd = 3.6)
+  title(xlab = expression(P(X[C] * "|" * X[R])), ylab = "Co-occurrence signal")
+  for (i in seq_len(3)) {
+    lines(seq_x, val[, i], col = pal[i + 1], lwd = 3.6)
   }
   mtext(3, adj = 0.01, text = "a", cex = 1.4, line = -1)
 
   par(mar = c(3, 1, 1.5, 1))
-  plot0(c(-1,1), c(-1, 9.8))
-  lines(c(0,0), c(0,9), lwd = 6)
+  plot0(c(-1, 1), c(-1, 9.8))
+  lines(c(0, 0), c(0, 9), lwd = 6)
   for (i in seq_len(4)) {
-    points(0, (i-1)*3, pch = 21, bg = pal[i], cex = 5,
+    points(0, (i - 1) * 3, pch = 21, bg = pal[i], cex = 5,
       col = darken(pal[i], 40), lwd = 2.5)
-    text(0, (i-1)*3, labels = vc_txt[i], col = contrastColors(pal[i]))
+    text(0, (i - 1) * 3, labels = vc_txt[i], col = contrastColors(pal[i]))
   }
   mtext(3, adj = 0.01, text = "b", cex = 1.4, line = -1)
 
   dev.off()
 
 }
+
 
 
 # Compute all correlations for three species R -> C -> T
@@ -52,10 +51,10 @@ scr_arg3 <- function() {
 # NB we assume prob presence of the consumer without resource is 0, same for top
 # pred with teh consumer
 sim_RCT <- function(pR, aRC, aCP, aPT) {
-  pC <- aRC*pR # also P(C,R)
-  pP <- aCP*pC # also P(P,R)
-  pT <- aPT*pP # also P(T,R)
-  c(pC*(1 - pR), pP*(1 - pR), pT*(1 - pR))
+  pC <- aRC * pR  # also P(C,R)
+  pP <- aCP * pC  # also P(P,R)
+  pT <- aPT * pP  # also P(T,R)
+  c(pC * (1 - pR), pP * (1 - pR), pT * (1 - pR))
 }
 
 # -- old way
