@@ -7,5 +7,5 @@
 scr_arg3()
 }
 \description{
-Code to reproduce analysis for 1st argument and figure 3.
+Code to reproduce analysis for argument 3 and figure 3.
 }

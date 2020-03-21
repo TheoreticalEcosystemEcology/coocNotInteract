@@ -1,6 +1,6 @@
 #' Argument 3: co-occurrence and indirect association
 #'
-#' Code to reproduce analysis for 1st argument and figure 3.
+#' Code to reproduce analysis for argument 3 and figure 3.
 #'
 #' @export
 

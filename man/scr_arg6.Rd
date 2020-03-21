@@ -10,5 +10,5 @@ scr_arg6(nval = 200)
 \item{nval}{Number of interactions strength values.}
 }
 \description{
-Code to reproduce analysis for 1st argument and figure 6.
+Code to reproduce analysis for argument 6 and figure 6.
 }

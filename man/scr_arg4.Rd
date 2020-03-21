@@ -10,10 +10,10 @@ scr_arg4(run_all = FALSE, nrep = 10000)
 \item{run_all}{Number of repetitions for every environmental values.}
 
 \item{nrep}{Number of repetitions for every environmental values, ignored if
-'\code{run_all = FALSE}.}
+\code{run_all = FALSE}.}
 }
 \description{
-Code to reproduce analysis for argument 4 and figure 4. Use
-\code{set.seed(7891)} and \code{nrep = 1e-5} for to obtain the results` found in the
-original study.
+Code to reproduce analysis for argument 4 and figure 4. Use \code{set.seed(7891)},
+\code{run_all = TRUE} and \code{nrep = 1e-5} to obtain the results of the original
+study (see example below, it takes ~1 hour on CPU i7 to run).
 }

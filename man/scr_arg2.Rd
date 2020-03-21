@@ -10,5 +10,5 @@ scr_arg2(nval = 100)
 \item{nval}{Number of values used as x values.}
 }
 \description{
-Code to reproduce analysis for 1st argument and figure 2.
+Code to reproduce analysis for argument 2 and figure 2.
 }

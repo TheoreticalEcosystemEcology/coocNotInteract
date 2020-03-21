@@ -23,7 +23,7 @@ For instance for argument 1, run
 ```R
 scr_arg1()
 ```
-If you want to execute all the entire set of argument, use
+If you want to execute the entire analysis (for all arguments), use
 
 ```R
 pipeline()

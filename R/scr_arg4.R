@@ -1,14 +1,18 @@
 #' Argument 4: co-occurrence and scale
 #'
-#' Code to reproduce analysis for argument 4 and figure 4. Use
-#' `set.seed(7891)` and `nrep = 1e-5` for to obtain the results` found in the
-#' original study.
+#' Code to reproduce analysis for argument 4 and figure 4. Use `set.seed(7891)`,
+#' `run_all = TRUE` and `nrep = 1e-5` to obtain the results of the original
+#' study (see example below, it takes ~1 hour on CPU i7 to run).
 #'
 #' @param run_all Number of repetitions for every environmental values.
 #' @param nrep Number of repetitions for every environmental values, ignored if
-#' '`run_all = FALSE`.
+#' `run_all = FALSE`.
 #'
 #' @export
+#' \dontrun{
+#' set.seed(7891)
+#' agr4_res <- scr_arg4(run_all = TRUE, nrep = 1e5)
+#' }
 
 scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
 
@@ -18,6 +22,7 @@ scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
   sz <- length(seq_env)
   # windows size
   vc_w_sz <- c(25, 50, 100, 200, 300, 400, 450, 475)
+  nwd <- length(vc_w_sz)
   # Presence Scenario 1 - A and B have different requirements
   occ_A_1 <- gaussianShape(seq_env, optx = 1.6, opty = 0.8, width = 1, pow = 2)
   occ_B_1 <- gaussianShape(seq_env, optx = 3.4, opty = 0.8, width = 1, pow = 2)
@@ -32,7 +37,6 @@ scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
     mat_occA_2 <- sim_occ(occ_A_2, nrep)
     mat_occB_2 <- sim_occ(occ_B_2, nrep)
 
-    nwd <- length(vc_w_sz)
     pb <- progress_bar$new(format = paste0(cli::symbol$info,
         "computing [:bar] :percent eta: :eta"),
         total = sum(sz - vc_w_sz), clear = FALSE, width = 70)
@@ -82,16 +86,16 @@ scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
   ## Scenario 1
   matx <- cbind(c(0, 5), c(-0.02, 1))
   plot(matx, type = "n", ann = FALSE, xlim = c(-.1, 5.1))
-  lines(seq_env_d, occ_A_1[id_env], col = "grey10", lwd = 2)
-  lines(seq_env_d, occ_B_1[id_env], col = "grey60", lwd = 2)
+  lines(seq_env_d, occ_A_1[id_env], col = "grey10", lwd = 3)
+  lines(seq_env_d, occ_B_1[id_env], col = "grey60", lwd = 3)
   text(1.5, yc, labels = expression(P(X[A])), col = "grey10", pos = 3, cex = 1.6)
   text(3.5, yc, labels = expression(P(X[B])), col = "grey60", pos = 3, cex = 1.6)
   mtext("a", 3, at = 0.2, cex = 1.2, line = -1.4)
 
   ## Scenario 2
   plot(matx, type = "n", ann = FALSE, xlim = c(-.1, 5.1))
-  lines(seq_env_d, occ_A_2[id_env], col = "grey10", lwd = 2)
-  lines(seq_env_d, occ_B_2[id_env], col = "grey60", lwd = 2)
+  lines(seq_env_d, occ_A_2[id_env], col = "grey10", lwd = 3)
+  lines(seq_env_d, occ_B_2[id_env], col = "grey60", lwd = 3)
   text(1.5, yc, labels = expression(P(X[A])), col = "grey10", pos = 3,
     cex = 1.6)
   text(3.5, yc, labels = expression(P(X[B])), col = "grey60", pos = 3,
@@ -104,7 +108,7 @@ scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
   plot(matx, type = "n", ann = FALSE, xlim = c(-.1, 5.1))
   for (i in seq_len(nwd)) {
     sq <- seq_x(sz, res1_f[[i]])
-    lines(seq_env[sq], res1_f[[i]], col = pal2[i])
+    lines(seq_env[sq], res1_f[[i]], col = pal2[i], lwd = 1.6)
   }
   abline(h = , lwd = 2)
   mtext("c", 3, at = 0.2, cex = 1.2, line = -1.4)
@@ -114,7 +118,7 @@ scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
   plot(matx, type = "n", ann = FALSE, xlim = c(-.1, 5.1))
   for (i in seq_len(nwd)) {
     sq <- seq_x(sz, res2_f[[i]])
-    lines(seq_env[sq], res2_f[[i]], col = pal2[i])
+    lines(seq_env[sq], res2_f[[i]], col = pal2[i], lwd = 1.6)
   }
   abline(h = mean(occ_A_2[id_env] * occ_B_2[id_env]) - mean(occ_A_2[id_env]) * mean(occ_B_2[id_env]), lty = 2)
   mtext("d", 3, at = 0.2, cex = 1.2, line = -1.4)
@@ -142,8 +146,7 @@ scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
 
   success_msg_fig(4)
 
-  invisible(NULL)
-
+  invisible(list(scenario1 = res1_f, scenario2 = res2_f))
 }
 
 ## Simulate occurrence data

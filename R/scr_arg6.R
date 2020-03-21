@@ -1,6 +1,6 @@
 #' Argument 6: co-occurrence and co-existence
 #'
-#' Code to reproduce analysis for 1st argument and figure 6.
+#' Code to reproduce analysis for argument 6 and figure 6.
 #'
 #' @param nval Number of interactions strength values.
 #'
