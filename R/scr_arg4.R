@@ -9,6 +9,7 @@
 #' `run_all = FALSE`.
 #'
 #' @export
+#' @examples
 #' \dontrun{
 #' set.seed(7891)
 #' agr4_res <- scr_arg4(run_all = TRUE, nrep = 1e5)
@@ -144,7 +145,7 @@ scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
 
   dev.off()
 
-  success_msg_fig(4)
+  msgSuccess_fig(4)
 
   invisible(list(scenario1 = res1_f, scenario2 = res2_f))
 }

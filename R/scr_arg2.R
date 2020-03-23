@@ -75,7 +75,7 @@ scr_arg2 <- function(nval = 100) {
   text(-.3, 0, labels = "Co-occurrence signal", cex = cx_txt, srt = 90)
   dev.off()
 
-  success_msg_fig(2)
+  msgSuccess_fig(2)
 
   invisible(NULL)
 }

@@ -9,19 +9,19 @@ pipeline <- function() {
   #
   set.seed(7891)
   #
-  info_msg("Argument 1")
+  msgInfo("Argument 1")
   scr_arg1()
   #
-  info_msg("Argument 2")
+  msgInfo("Argument 2")
   scr_arg2()
   #
-  info_msg("Argument 3")
+  msgInfo("Argument 3")
   scr_arg3()
   #
-  info_msg("Argument 4")
+  msgInfo("Argument 4")
   scr_arg4()
   #
-  info_msg("Argument 6")
+  msgInfo("Argument 6")
   scr_arg6()
   invisible(NULL)
 }

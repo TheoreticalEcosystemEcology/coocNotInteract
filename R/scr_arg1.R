@@ -97,7 +97,7 @@ scr_arg1 <- function() {
 
   dev.off()
 
-  success_msg_fig(1)
+  msgSuccess_fig(1)
 
   invisible(NULL)
 }

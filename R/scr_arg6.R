@@ -64,7 +64,7 @@ scr_arg6 <- function(nval = 200) {
 
   dev.off()
 
-  success_msg_fig(6)
+  msgSuccess_fig(6)
 
   invisible(NULL)
 }

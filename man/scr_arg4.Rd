@@ -17,3 +17,9 @@ Code to reproduce analysis for argument 4 and figure 4. Use \code{set.seed(7891)
 \code{run_all = TRUE} and \code{nrep = 1e-5} to obtain the results of the original
 study (see example below, it takes ~1 hour on CPU i7 to run).
 }
+\examples{
+\dontrun{
+set.seed(7891)
+agr4_res <- scr_arg4(run_all = TRUE, nrep = 1e5)
+}
+}
