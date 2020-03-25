@@ -8,7 +8,8 @@
 
 scr_arg2 <- function(nval = 100) {
   # presence values
-  seq_2 <- seq_1 <- seq(0.01, 0.99, length = nval)
+  seq_1 <- seq(0.01, 0.99, length = nval)
+  seq_2 <- c(.05,.5,.95)
 
   # values predation => P(pred|C2)
   vc_pred <- c(0, 0.2, 0.5, 0.95)
@@ -16,22 +17,21 @@ scr_arg2 <- function(nval = 100) {
   vc_pr3 <- c(0, 0.1, 0.5, 0.8)
 
   # pres P and C1
-  ls_res_pred <- list()
+  ls_res <- list()
   for (k in seq_along(vc_pred)) {
-    mat2 <- mat1 <- matrix(0, nval, nval)
+    mat2 <- mat1 <- matrix(0, nval, length(seq_2))
     for (i in seq_len(nval)) {
-      for (j in seq_len(nval)) {
+      for (j in seq_along(seq_2)) {
         tmp_pred <- sim_sp3(seq_1[i], seq_2[j], max(vc_pred[k], 0.75), 0.75,
           vc_pred[k], 0)
           mat1[i, j] <- tmp_pred[1L]
           mat2[i, j] <- tmp_pred[2L]
-          ls_res_pred[[k]] <- list(mat1, mat2)
+          ls_res[[k]] <- list(mat1, mat2)
       }
     }
   }
 
   # global min and global max
-  ls_res <- ls_res_pred
   mx <- max(unlist(ls_res))
   mn <- min(unlist(ls_res))
 
@@ -50,12 +50,11 @@ scr_arg2 <- function(nval = 100) {
     par(mar = c(1.1, 1.5, .5, .0), mgp = c(2,.8,0), las = 1)
     ##
     plot0(c(0, 1), c(0, 0.2))
-    slc <- floor(c(.05,.5,.95)*nval)
-    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, slc[1L]],
+    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, 1L],
       col = "#297499", lwd = 5.4)
-    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, slc[2L]],
+    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, 2L],
       col = "#1cc5dd", lwd = 3.6)
-    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, slc[3L]],
+    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, 3L],
       col = "darkorange",  lwd = 1.8)
     axis(2)
     if (i == 4) axis(1) else axis(1, at = seq(0, 1, .2), labels = rep("", 6))
@@ -85,12 +84,12 @@ scr_arg2 <- function(nval = 100) {
 # Compute correlations for three species
 # in the 2 resources 1 consumer case
 #=======================================
-# p1 = prob presence resource 1
-# p2 = prob presence resource 2
-# a1 = prob presence of the comsumer given 1 & 2
-# a2 = prob presence of the comsumer given 1 only
-# a3 = prob presence of the comsumer given 2 only
-# a4 = prob presence of the comsumer given neither 1 nor 2
+# p1 = P(V1)
+# p2 = P(V2)
+# a1 = P(H | 1 & 2)
+# a2 = P(H | 1 only)
+# a3 = P(H | 2 only)
+# a4 = P(H | neither 1 nor 2)
 sim_sp3 <- function(p1, p2, a1, a2, a3, a4 = 0) {
   p3 <- a1 * p1 * p2 + a2 * p1 * (1 - p2) + a3 * (1 - p1) * p2 +
     a4 * (1 - p1) * (1 - p2)
@@ -107,7 +106,7 @@ cor_theo <- function(p1, p2, p12) {
 }
 
 plot_net_3 <- function(lwd_C2 = 0, vc_col = 1:3) {
-  plot0(c(0.5, 2.5), c(0.5, 2.5))
+  plot0(c(.5, 2.5), c(0.5, 2.5))
   lines(c(1, 1.5), c(1, 2), lwd = 4, col = "gray70")
   lines(c(2, 1.5), c(1, 2), lwd = lwd_C2, col = "gray70")
   points(c(1:2, 1.5), c(1, 1, 2), pch = 21, bg = vc_col, cex = 5, lwd = 2.2)
