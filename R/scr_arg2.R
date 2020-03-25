@@ -69,7 +69,7 @@ scr_arg2 <- function(nval = 100) {
   cx_txt <- 1.8
   par(mar = rep(.5, 4))
   plot0()
-  text(0, -.2, labels = expression(P(X[C1])), cex = cx_txt)
+  text(0, -.2, labels = expression(P(X[V1])), cex = cx_txt)
   ##
   plot0()
   text(-.3, 0, labels = "Co-occurrence signal", cex = cx_txt, srt = 90)
@@ -111,7 +111,7 @@ plot_net_3 <- function(lwd_C2 = 0, vc_col = 1:3) {
   lines(c(1, 1.5), c(1, 2), lwd = 4, col = "gray70")
   lines(c(2, 1.5), c(1, 2), lwd = lwd_C2, col = "gray70")
   points(c(1:2, 1.5), c(1, 1, 2), pch = 21, bg = vc_col, cex = 5, lwd = 2.2)
-  text(c(1:2, 1.5), c(1, 1, 2), labels = c(paste0("C", 1:2), "P"), cex = 1.4, col = "grey10")
+  text(c(1:2, 1.5), c(1, 1, 2), labels = c(paste0("V", 1:2), "H"), cex = 1.4, col = "grey10")
   invisible(NULL)
 }
 

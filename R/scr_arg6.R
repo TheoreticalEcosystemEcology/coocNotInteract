@@ -46,7 +46,7 @@ scr_arg6 <- function(nval = 200) {
   abline(h = 0.5, lty = 3, lwd = 1)
 
   legend("bottomleft", col = pal[c(3, 2)], legend = c("Species A", "Species B"),
-    lty = 1, cex = 1, lwd = 3, bty = "n")
+    lty = 1, cex = .9, lwd = 3, bty = "n")
   text(-0.02, 0.98, "a")
 
 

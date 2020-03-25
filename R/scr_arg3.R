@@ -8,7 +8,7 @@ scr_arg3 <- function() {
 
   seq_x <- seq(0.01, 0.99, 0.01)
   val <- do.call(rbind, lapply(seq_x, function(x) sim_RCT(0.5, x, 0.5, 0.5)))
-  vc_txt <- c("R", "C", "P", "T")
+  vc_txt <- c("V", "H", "C", "T")
 
 
   # output dir
@@ -24,7 +24,7 @@ scr_arg3 <- function() {
   axis(2)
   axis(1)
   box2(1:2, lwd = 2)
-  title(xlab = expression(P(X[C] * "|" * X[R])), ylab = "Co-occurrence signal")
+  title(xlab = expression(P(X[H] * "|" * X[V])), ylab = "Co-occurrence signal")
   for (i in seq_len(3)) {
     lines(seq_x, val[, i], col = pal[i + 1], lwd = 3.6)
   }
@@ -36,7 +36,8 @@ scr_arg3 <- function() {
   for (i in seq_len(4)) {
     points(0, (i - 1) * 3, pch = 21, bg = pal[i], cex = 5,
       col = darken(pal[i], 40), lwd = 2.5)
-    text(0, (i - 1) * 3, labels = vc_txt[i], col = contrastColors(pal[i]))
+    text(0, (i - 1) * 3, labels = vc_txt[i], col = contrastColors(pal[i]),
+      cex = 1.2)
   }
   mtext(3, adj = 0.01, text = "b", cex = 1.4, line = -1)
 
