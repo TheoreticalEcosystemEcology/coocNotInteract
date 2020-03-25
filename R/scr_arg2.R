@@ -7,26 +7,23 @@
 #' @export
 
 scr_arg2 <- function(nval = 100) {
-  # presence values
+  # P(V1)
   seq_1 <- seq(0.01, 0.99, length = nval)
+  # P(V2)
   seq_2 <- c(.05,.5,.95)
-
-  # values predation => P(pred|C2)
+  # P(H|V2)
   vc_pred <- c(0, 0.2, 0.5, 0.95)
-  ## values competition => P(pred2|C) same if pred1 present
-  vc_pr3 <- c(0, 0.1, 0.5, 0.8)
 
-  # pres P and C1
+  # Co-occurrence signals
   ls_res <- list()
   for (k in seq_along(vc_pred)) {
-    mat2 <- mat1 <- matrix(0, nval, length(seq_2))
+    mat1 <- matrix(0, nval, length(seq_2))
     for (i in seq_len(nval)) {
       for (j in seq_along(seq_2)) {
         tmp_pred <- sim_sp3(seq_1[i], seq_2[j], max(vc_pred[k], 0.75), 0.75,
           vc_pred[k], 0)
           mat1[i, j] <- tmp_pred[1L]
-          mat2[i, j] <- tmp_pred[2L]
-          ls_res[[k]] <- list(mat1, mat2)
+          ls_res[[k]] <- mat1
       }
     }
   }
@@ -50,12 +47,12 @@ scr_arg2 <- function(nval = 100) {
     par(mar = c(1.1, 1.5, .5, .0), mgp = c(2,.8,0), las = 1)
     ##
     plot0(c(0, 1), c(0, 0.2))
-    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, 1L],
-      col = "#297499", lwd = 5.4)
-    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, 2L],
-      col = "#1cc5dd", lwd = 3.6)
-    lines(seq(0, 1, length.out = nval), ls_res[[i]][[1L]][, 3L],
-      col = "darkorange",  lwd = 1.8)
+    lines(seq(0, 1, length.out = nval), ls_res[[i]][, 1L],
+      col = pal[1], lwd = 5.4)
+    lines(seq(0, 1, length.out = nval), ls_res[[i]][, 2L],
+      col = pal[2], lwd = 3.6)
+    lines(seq(0, 1, length.out = nval), ls_res[[i]][, 3L],
+      col = pal[3],  lwd = 1.8)
     axis(2)
     if (i == 4) axis(1) else axis(1, at = seq(0, 1, .2), labels = rep("", 6))
     box(lwd = 1.1)
@@ -86,22 +83,23 @@ scr_arg2 <- function(nval = 100) {
 #=======================================
 # p1 = P(V1)
 # p2 = P(V2)
-# a1 = P(H | 1 & 2)
+# a1 = P(H | V1 & 2)
 # a2 = P(H | 1 only)
 # a3 = P(H | 2 only)
 # a4 = P(H | neither 1 nor 2)
 sim_sp3 <- function(p1, p2, a1, a2, a3, a4 = 0) {
-  p3 <- a1 * p1 * p2 + a2 * p1 * (1 - p2) + a3 * (1 - p1) * p2 +
+
+  # presence of H
+  pH <- a1 * p1 * p2 + a2 * p1 * (1 - p2) + a3 * (1 - p1) * p2 +
     a4 * (1 - p1) * (1 - p2)
 
-  cor13 <- cor_theo(p1, p3, p1 * (a1 * p2 + a2 * (1 - p2)))
-  cor23 <- cor_theo(p2, p3, p2 * (a1 * p1 + a3 * (1 - p1)))
-
-  c(cor13, cor23)
+  # used before
+  # cor23 <- cooc_signal(p2, p3, p2 * (a1 * p1 + a3 * (1 - p1)))
+  cor13 <- cooc_signal(p1, pH, p1 * (a1 * p2 + a2 * (1 - p2)))
 }
 
-cor_theo <- function(p1, p2, p12) {
-  # (p12 - p1*p2) / sqrt(p1*(1-p1)*p2*(1-p2))
+# Co-occurrence signal
+cooc_signal <- function(p1, p2, p12) {
   p12 - p1 * p2
 }
 
