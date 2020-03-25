@@ -8,20 +8,20 @@
 
 scr_arg2 <- function(nval = 100) {
   # P(V1)
-  seq_1 <- seq(0.01, 0.99, length = nval)
+  seq_V1 <- seq(0.01, 0.99, length = nval)
   # P(V2)
-  seq_2 <- c(.05,.5,.95)
+  seq_V2 <- c(.05, .5, .95)
   # P(H|V2)
-  vc_pred <- c(0, 0.2, 0.5, 0.95)
+  seq_HV2 <- c(0, 0.2, 0.5, 0.95)
 
   # Co-occurrence signals
   ls_res <- list()
-  for (k in seq_along(vc_pred)) {
-    mat1 <- matrix(0, nval, length(seq_2))
+  for (k in seq_along(seq_HV2)) {
+    mat1 <- matrix(0, nval, length(seq_V2))
     for (i in seq_len(nval)) {
-      for (j in seq_along(seq_2)) {
-        tmp_pred <- sim_sp3(seq_1[i], seq_2[j], max(vc_pred[k], 0.75), 0.75,
-          vc_pred[k], 0)
+      for (j in seq_along(seq_V2)) {
+        tmp_pred <- sim_sp3(seq_V1[i], seq_V2[j], max(seq_HV2[k], 0.75), 0.75,
+          seq_HV2[k], 0)
           mat1[i, j] <- tmp_pred[1L]
           ls_res[[k]] <- mat1
       }
@@ -87,6 +87,9 @@ scr_arg2 <- function(nval = 100) {
 # a2 = P(H | 1 only)
 # a3 = P(H | 2 only)
 # a4 = P(H | neither 1 nor 2)
+# For this argument, we consider that H that feeds exclusively on V1 and V2,
+# thus a4 = 0.
+
 sim_sp3 <- function(p1, p2, a1, a2, a3, a4 = 0) {
 
   # presence of H
