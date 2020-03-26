@@ -1,9 +1,10 @@
+#' @importFrom binom binom.wilson
 #' @importFrom crayon blue green
 #' @importFrom inSilecoMisc logistic2 gaussianShape scaleWithin
 #' @importFrom inSilecoMisc msgInfo msgSuccess
-#' @importFrom grDevices colorRampPalette dev.off png
+#' @importFrom grDevices colorRampPalette dev.off png rgb
 #' @importFrom graphics abline axis box image layout legend lines mtext par
-#' @importFrom graphics plot points text title
+#' @importFrom graphics plot points polygon segments text title
 #' @importFrom graphicsutils box2 contrastColors darken envelop plot0 plotImage
 #' @importFrom progress progress_bar
 #' @importFrom rootSolve stode

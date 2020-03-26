@@ -3,7 +3,9 @@ Title: Research compendium
 Version: 0.0.0.9000
 Date: 2020-03-21
 Authors@R: c(
-  person("Kevin", "Cazelles", email = "kcazelle@uoguelph.ca", comment = c(ORCID = "0000-0001-6619-9874"), role = c("aut", "cre"))
+  person("Kevin", "Cazelles", email = "kcazelle@uoguelph.ca", comment = c(ORCID = "0000-0001-6619-9874"), role = c("aut", "cre")),
+  person("F. Guillaume", "Blanchet", role = c("aut"), comment = c(ORCID = "0000-0001-5149-2488")),
+  person("Dominique", "Gravel", role = c("aut"))
   )
 Description: Research compendium.
 URL: https://github.com/TheoreticalEcosystemEcology/coocc_not_inter
@@ -11,11 +13,13 @@ BugReports: https://github.com/TheoreticalEcosystemEcology/coocc_not_inter/issue
 Depends:
     R (>= 3.5)
 Imports:
+    binom,
     cli,
     crayon,
     deSolve,
     graphics,
     graphicsutils,
+    Hmisc,
     inSilecoMisc,
     progress,
     rootSolve,

@@ -58,7 +58,8 @@ scr_arg1 <- function() {
   axis(1, lwd = 0, lwd.ticks = 0.5)
   axis(2, lwd = 0, lwd.ticks = 0.5)
   par(xpd = TRUE)
-  title(ylab = expression(P(X[A] * "," * X[B] * "|" * E)), cex.lab = 1.5, line = 4)
+  title(ylab = expression(P(X[A] * "," * X[B] * "|" * E)), cex.lab = 1.5,
+    line = 4)
   par(xpd = TRUE)
   box2(1:2, lwd = 1.2)
   mlet("c", line = -0.4)
@@ -154,8 +155,8 @@ scr_arg1_2 <- function() {
   text(c(0.8, 4.2), c(0.8, 0.8), labels = c(expression(P(X[A] * "|" * E)), expression(P(X[B] *
     "|" * E))), col = pal[c(3, 2)], cex = 1.4)
 
-  axis(1, lwd = 0, lwd.tick = 0.5)
-  axis(2, lwd = 0, lwd.tick = 0.5)
+  axis(1, lwd = 0, lwd.ticks = 0.5)
+  axis(2, lwd = 0, lwd.ticks = 0.5)
   box2(1:2, lwd = 1.2)
   title(ylab = "Occurrence probability")
   mlet("b", line = -0.4)
@@ -165,8 +166,8 @@ scr_arg1_2 <- function() {
   par(las = 1, mar = c(2, 4.5, 1, 1))
   plot0(range(seq_env), c(0, 0.25))
   lines(seq_env, prob1 * prob2, col = "black", lwd = 2)
-  axis(1, lwd = 0, lwd.tick = 0.5)
-  axis(2, lwd = 0, lwd.tick = 0.5)
+  axis(1, lwd = 0, lwd.ticks = 0.5)
+  axis(2, lwd = 0, lwd.ticks = 0.5)
   # title(ylab = expression(P(X[A*','*B]*'|'*E)))
   title(ylab = expression(P(X[A] * "," * X[B] * "|" * E)))
   box2(1:2, lwd = 1.2)
@@ -178,11 +179,12 @@ scr_arg1_2 <- function() {
     plot0(range(seq_env), c(0, 1))
     envelop(seq_env, ls_envi[[i]], col = "grey90", border = NA)
     lines(seq_env, ls_envi[[i]], lwd = 0.5)
-    axis(1, lwd = 0, lwd.tick = 0.5)
+    axis(1, lwd = 0, lwd.ticks = 0.5)
     if (i == 1) {
-      axis(2, lwd = 0, lwd.tick = 0.5)
+      axis(2, lwd = 0, lwd.ticks = 0.5)
     } else {
-      axis(2, at = seq(0, 1, 0.2), labels = rep("", 6), lwd = 0, lwd.tick = 0.5)
+      axis(2, at = seq(0, 1, 0.2), labels = rep("", 6), lwd = 0,
+        lwd.ticks = 0.5)
     }
     box2(1:2, lwd = 1.2)
     mlet(let = letters[3 + i])
@@ -193,11 +195,11 @@ scr_arg1_2 <- function() {
   for (i in 1:3) {
     plot0(range(seq_env), c(0, 0.0015))
     lines(seq_env, ls_prob[[i]])
-    axis(1, lwd = 0, lwd.tick = 0.5)
+    axis(1, lwd = 0, lwd.ticks = 0.5)
     if (i == 1) {
-      axis(2, lwd = 0, lwd.tick = 0.5)
+      axis(2, lwd = 0, lwd.ticks = 0.5)
     } else {
-      axis(2, at = seq(0, 0.0015, 5e-04), labels = rep("", 4), lwd = 0, lwd.tick = 0.5)
+      axis(2, at = seq(0, 0.0015, 5e-04), labels = rep("", 4), lwd = 0, lwd.ticks = 0.5)
     }
     box2(1:2, lwd = 1.2)
     mtext(expression(P(X[A] * "," * X[B])), 3, cex = 0.8, at = 2.5, adj = 1)
