@@ -1,13 +1,13 @@
-#' Argument 6: co-occurrence and co-existence
+#' Argument 7: co-occurrence and co-existence
 #'
-#' Code to reproduce analysis for argument 6 and figure 6.
+#' Code to reproduce analysis for argument 7 and figure 6.
 #'
 #' @param nval Number of interactions strength values.
 #'
 #' @export
 
 
-scr_arg6 <- function(nval = 200) {
+scr_arg7 <- function(nval = 200) {
 
   sig_vec <- seq(0, 1, length.out = nval)
   res <- matrix(nrow = nval, ncol = 5)

@@ -24,7 +24,9 @@ pipeline <- function() {
   msgInfo("Argument 5")
   scr_arg5()
   #
-  msgInfo("Argument 6")
-  scr_arg6()
+  ## no figure for argument 6
+  #
+  msgInfo("Argument 7")
+  scr_arg7()
   invisible(NULL)
 }
