@@ -48,7 +48,7 @@ scr_arg1 <- function(denv = 0.01) {
 
 
   ## Occurrence probability for A and B
-  par(las = 1, mar = c(2, 5, 1, 4))
+  par(las = 1, mar = c(2, 6, 1, 3))
   plot0(range(seq_env), c(0, 1))
   lines(seq_env, prob1, col = pal[3], lwd = 2)
   lines(seq_env, prob2, col = pal[2], lwd = 2)
@@ -58,12 +58,11 @@ scr_arg1 <- function(denv = 0.01) {
   axis(1, lwd = 0, lwd.ticks = 0.5)
   axis(2, lwd = 0, lwd.ticks = 0.5)
   box2(1:2, lwd = 1.2)
-  title(ylab = "Occurrence probability", cex.lab = 1.2)
+  title(ylab = "Occurrence probability", cex.lab = 1.2, mgp = c(3.6, 1, 0))
   mlet("b", line = -0.4)
 
-
   ## Co-occurrence probability
-  par(las = 1, mar = c(2, 4.5, 1, 1))
+  par(las = 1, mar = c(2, 4, 1, 1))
   plot0(range(seq_env), c(0, 0.25))
   lines(seq_env, prob1 * prob2, col = 1, lwd = 2)
   axis(1, lwd = 0, lwd.ticks = 0.5)
@@ -78,7 +77,7 @@ scr_arg1 <- function(denv = 0.01) {
   for (i in 1:3) {
     plot0(range(seq_env), c(0, .8))
     envelop(seq_env, ls_envi[[i]], col = "grey90", border = NA)
-    lines(seq_env, ls_envi[[i]], lwd = 0.5)
+    lines(seq_env, ls_envi[[i]], lwd = 0.8)
     axis(1, lwd = 0, lwd.ticks = 0.5)
     if (i == 1) {
       axis(2, lwd = 0, lwd.ticks = 0.5)
@@ -94,7 +93,8 @@ scr_arg1 <- function(denv = 0.01) {
   par(mar = c(2, 1.5, 1.6, 1))
   for (i in 1:3) {
     plot0(range(seq_env), c(0, 0.0015))
-    lines(seq_env, ls_prob[[i]])
+    envelop(seq_env, ls_prob[[i]], col = "grey90", border = NA)
+    lines(seq_env, ls_prob[[i]], lwd = 0.8)
     axis(1, lwd = 0, lwd.ticks = 0.5)
     if (i == 1) {
       axis(2, lwd = 0, lwd.ticks = 0.5)
@@ -103,18 +103,19 @@ scr_arg1 <- function(denv = 0.01) {
     }
     box2(1:2, lwd = 1.2)
     mtext(expression(P(X[A] * "," * X[B])), 3, cex = 0.8, at = 2.5, adj = 1)
-    mtext(paste0(" = ", format(ls_sprob[[i]], digits = 3)), 3, cex = 0.76, at = 2.5,
-      line = 0.4, adj = 0)
+    mtext(paste0(" = ", format(ls_sprob[[i]], digits = 3)), 3, cex = 0.76,
+      at = 2.5, line = 0.4, adj = 0)
     mlet(let = letters[6 + i])
   }
 
   par(mar = c(0, 0, 0, 0))
   plot0()
-  text(-0.6, 0, labels = expression(P(E)), srt = 90, cex = 1.2)
+  text(-0.6, 0, "density", srt = 90, cex = 1.2)
+  text(.2, 0, labels = expression(f(E)), srt = 90, cex = 1.2)
   ##
   plot0()
-  text(-0.6, 0, labels = expression(P(X[A] * "," * X[B] * "|" * E) * P(E)), srt = 90,
-    cex = 1.2)
+  text(-0.6, 0, labels = expression(P(X[A] * "," * X[B] * "|" * E) * f(E)),
+    srt = 90, cex = 1.2)
   ##
   plot0()
   text(0, 0, labels = "Environmental gradient (e.g. elevation)", cex = 1.4)
