@@ -21,6 +21,9 @@ pipeline <- function() {
   msgInfo("Argument 4")
   scr_arg4()
   #
+  msgInfo("Argument 5")
+  scr_arg5()
+  #
   msgInfo("Argument 6")
   scr_arg6()
   invisible(NULL)
