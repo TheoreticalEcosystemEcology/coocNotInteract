@@ -26,7 +26,7 @@ msgSuccess_fig <- function(n, dir = "output")
   msgSuccess("Fig", n, "created!", paste0("See ", dir, "/fig", n, ".png"))
 
 ## Graph helpers
-mlet <- function(let = "a", line = -1)
-  mtext(3, text = let, adj = 0.02, line = line)
+mlet <- function(let = "a", line = -1, adj = 0.02)
+  mtext(3, text = let, adj = adj, line = line)
 
 pal <- c("#021128", "#3e99b5", "darkorange", "#fcdb30")

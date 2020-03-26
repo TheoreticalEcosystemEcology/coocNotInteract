@@ -4,7 +4,10 @@
 \alias{scr_arg1}
 \title{Argument 1: environment and occurrence}
 \usage{
-scr_arg1()
+scr_arg1(denv = 0.01)
+}
+\arguments{
+\item{denv}{incremental value for the environmental gradient.}
 }
 \description{
 Code to reproduce analysis for 1st argument and figure 1.
