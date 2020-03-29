@@ -1,6 +1,6 @@
-#' Argument 2: environment and interact
+#' Analysis pipeline
 #'
-#' Code to reproduce analysis for 1st argument and figure 2.
+#' Run all analyses.
 #'
 #' @export
 
@@ -24,7 +24,7 @@ pipeline <- function() {
   msgInfo("Argument 5")
   scr_arg5()
   #
-  ## no figure for argument 6
+  ## NB: no figure for argument 6
   #
   msgInfo("Argument 7")
   scr_arg7()
