@@ -1,5 +1,8 @@
 # coocNotInteract
 [![R build status](https://github.com/TheoreticalEcosystemEcology/coocNotInteract/workflows/R-CMD-check/badge.svg)](https://github.com/TheoreticalEcosystemEcology/coocNotInteract/actions)
+[![DOI](https://zenodo.org/badge/248542876.svg)](https://zenodo.org/badge/latestdoi/248542876)
+
+
 
 
 :book: "Co-occurrence is not evidence of ecological interaction" by F. G. Blanchet, K. Cazelles, D. Gravel - Research compendium. Code to reproduce analysis and figures in <https://www.authorea.com/users/293493/articles/421501-co-occurrence-is-not-evidence-of-ecological-interaction>.
