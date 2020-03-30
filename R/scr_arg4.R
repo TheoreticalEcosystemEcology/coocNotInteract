@@ -63,12 +63,13 @@ scr_arg4 <- function(run_all = FALSE, nrep = 1e4) {
     res2_f <- lapply(ls_res$scenario2, apply, 2, mean)
 
   } else {
-    # to be added
-    res1_f <- cooccnotinter::arg4_res$scenario1
-    res2_f <- cooccnotinter::arg4_res$scenario2
+    # use results included in the package
+    res1_f <- coocNotInteract::arg4_res$scenario1
+    res2_f <- coocNotInteract::arg4_res$scenario2
   }
 
-  ############################# PLOT
+
+  # ----- Figure 4 -----
 
   # output dir
   output_dir()

@@ -30,6 +30,9 @@ scr_arg1 <- function(denv = 0.01) {
   ls_sprob <- lapply(ls_prob, sum)
 
 
+
+  # ----- Figure 1 -----
+
   # output dir
   output_dir()
 

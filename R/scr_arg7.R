@@ -26,6 +26,8 @@ scr_arg7 <- function(nval = 200) {
   }
 
 
+  # ----- Figure 6 -----
+
   # output dir
   output_dir()
 

@@ -7,5 +7,5 @@
 pipeline()
 }
 \description{
-Run all analyses.
+Run the entire analysis.
 }

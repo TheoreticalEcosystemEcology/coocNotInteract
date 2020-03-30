@@ -12,7 +12,8 @@ arg4_res
 }
 \description{
 This data set is the one used to draw Figure 4. As these simulation take
-~1hour to run (1CPU - Intel i7), we saved the results for the sake but note
-that \code{\link[=scr_arg4]{scr_arg4()}} allows the reproduction of those results.
+~1hour to run (1CPU - Intel i7), we saved the results to speed up the
+creation of Figure 4 but note that \code{\link[=scr_arg4]{scr_arg4()}} allows the reproduction of
+those results.
 }
 \keyword{datasets}

@@ -32,6 +32,9 @@ scr_arg2 <- function(nval = 100) {
   mx <- max(unlist(ls_res))
   mn <- min(unlist(ls_res))
 
+
+  # ----- Figure 2 -----
+
   # output dir
   output_dir()
 

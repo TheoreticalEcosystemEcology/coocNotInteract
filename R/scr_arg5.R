@@ -74,6 +74,8 @@ scr_arg5 <- function() {
   }
 
 
+  # ----- Figure 5 -----
+
   # output dir
   output_dir()
 

@@ -1,16 +1,22 @@
-# coocc_not_inter
-[![R build status](https://github.com/TheoreticalEcosystemEcology/coocc_not_inter/workflows/R-CMD-check/badge.svg)](https://github.com/TheoreticalEcosystemEcology/coocc_not_inter/actions)
+# coocNotInteract
+[![R build status](https://github.com/TheoreticalEcosystemEcology/coocNotInteract/workflows/R-CMD-check/badge.svg)](https://github.com/TheoreticalEcosystemEcology/coocNotInteract/actions)
 
-:book: Blanchet (in rev) DOI:2Badded - Research compendium
 
-Code to reproduce analysis and figure in <https://www.authorea.com/users/293493/articles/421501-co-occurrence-is-not-evidence-of-ecological-interaction>
+:book: "Co-occurrence is not evidence of ecological interaction" by F. G. Blanchet, K. Cazelles, D. Gravel - Research compendium. Code to reproduce analysis and figures in <https://www.authorea.com/users/293493/articles/421501-co-occurrence-is-not-evidence-of-ecological-interaction>.
 
 
 ## Install
 
-```
-remotes::install_github("TheoreticalEcosystemEcology/coocc_not_inter")
-library("cooccnotinter")
+Our scripts are formatted as an R package to share them easily. As such, use
+the package [`remotes`](https://CRAN.R-project.org/package=remotes) to install
+this package:
+
+```R
+# if remotes is not installed, run
+install.packages("remotes")
+# then
+remotes::install_github("TheoreticalEcosystemEcology/coocNotInteract")
+library("coocNotInteract")
 ```
 
 ## Reproduce
@@ -21,7 +27,8 @@ For instance for argument 1, run
 ```R
 scr_arg1()
 ```
-If you want to execute the entire analysis (for all arguments), use
+
+To execute the entire analysis (for all arguments), use
 
 ```R
 pipeline()

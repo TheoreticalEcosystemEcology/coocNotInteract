@@ -11,6 +11,8 @@ scr_arg3 <- function() {
   vc_txt <- c("V", "H", "C", "T")
 
 
+  # ----- Figure 3 -----
+
   # output dir
   output_dir()
 

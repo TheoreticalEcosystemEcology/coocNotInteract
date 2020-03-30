@@ -1,6 +1,6 @@
 #' Analysis pipeline
 #'
-#' Run all analyses.
+#' Run the entire analysis.
 #'
 #' @export
 
